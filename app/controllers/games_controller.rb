@@ -9,7 +9,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.create
+    game = Game.create(game_params)
     render json: game, satus: 201
   end
 
@@ -25,5 +25,10 @@ class GamesController < ApplicationController
 
   end
 
+  private
+
+  def game_params
+    params.require(:game).permit(:state)
+  end
 
 end
