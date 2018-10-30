@@ -9,7 +9,8 @@ class GamesController < ApplicationController
   end
 
   def create
-
+    game = Game.create
+    render json: game, satus: 201
   end
 
   def show
