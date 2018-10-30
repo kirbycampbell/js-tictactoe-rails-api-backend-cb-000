@@ -22,7 +22,10 @@ class GamesController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @game }
+    end
   end
 
   private
