@@ -15,11 +15,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @game }
-    end
+    render json: @game
   end
 
   def update
@@ -32,7 +28,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:state)
+    params.permit(state: [])
   end
 
 end
