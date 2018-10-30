@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.create
+    game = Game.create(game_params)
     render json: game, satus: 201
   end
 
@@ -33,7 +33,6 @@ class GamesController < ApplicationController
 
   def set_game
     @game = Game.find(params[:id])
-    
   end
 
 end
